@@ -1,0 +1,36 @@
+# Secrets and local configuration
+.env
+.env.*
+!.env.example
+.streamlit/secrets.toml
+
+# Uploaded or local spreadsheet data
+uploads/
+uploaded_files/
+*.uploaded.csv
+*.uploaded.xls
+*.uploaded.xlsx
+
+# Logs and runtime output
+*.log
+
+# Python-generated files
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Local virtual environments
+.venv/
+venv/
+env/
+
+# OS and editor files
+.DS_Store
+Thumbs.db
+.vscode/
+
+# Historical project backup
+Uniexcel_backup_phase1.py

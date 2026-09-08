@@ -1,0 +1,6 @@
+streamlit
+pandas
+plotly
+openpyxl
+xlrd; python_version < "3.14"
+openai
