@@ -14,6 +14,7 @@ AxiShell AI helps users upload structured data, understand its shape, explore qu
 - [Run locally](#run-locally)
 - [Run with Docker](#run-with-docker)
 - [Run the tests](#run-the-tests)
+- [Publish with Git](#publish-with-git)
 - [Deploy to Streamlit Community Cloud](#deploy-to-streamlit-community-cloud)
 - [Optional AI analysis](#optional-ai-analysis)
 - [Data protection](#data-protection)
@@ -135,15 +136,47 @@ python -m unittest .\test_phase6_regression.py .\test_phase10_regression.py
 
 The regression suite covers upload boundaries, workbook safety checks, lineage, integrity warnings, quality scoring, deterministic findings, AI context boundaries, release metadata, and accessibility contracts.
 
+## Publish with Git
+
+The project is published at [github.com/riyas935/axishell-ai](https://github.com/riyas935/axishell-ai).
+
+From the project folder, create a local Git history:
+
+```powershell
+git init
+git add .
+git commit -m "Initial project version"
+```
+
+Review the files with `git status` before committing. The `.gitignore` file excludes secrets, uploaded data, logs, Python cache files, and the old backup script.
+
+Connect the project to GitHub and push the `main` branch:
+
+```powershell
+git remote add origin https://github.com/riyas935/axishell-ai.git
+git branch -M main
+git push -u origin main
+```
+
+For later changes:
+
+```powershell
+git add .
+git commit -m "Describe the change"
+git push
+```
+
 ## Deploy to Streamlit Community Cloud
 
-1. Create a GitHub repository and keep it public only if the repository contains no private data or credentials.
-2. Push this project with `.gitignore` included.
-3. Open Streamlit Community Cloud and choose **Deploy an app**.
-4. Select the repository, branch, and `Uniexcel.py` as the main file.
-5. Deploy the app.
-6. Add `OPENAI_API_KEY` through the app's secrets settings only if optional AI analysis is enabled.
-7. Test the deployed app with fictional sample data.
+1. Confirm the code is pushed to [github.com/riyas935/axishell-ai](https://github.com/riyas935/axishell-ai).
+2. Open [share.streamlit.io](https://share.streamlit.io/) and sign in with GitHub.
+3. Choose **Create app** or **Deploy an app**.
+4. Select repository `riyas935/axishell-ai`.
+5. Select the `main` branch.
+6. Set the main file path to `Uniexcel.py`.
+7. Click **Deploy** and wait for the app URL.
+8. Open the deployed URL and test it with fictional sample data.
+9. If optional AI analysis is enabled, add `OPENAI_API_KEY` through the app's secrets settings. Never commit the key to GitHub.
 
 Streamlit Community Cloud provides HTTPS for the deployed app. Do not upload real personal, financial, health, employment, or company-confidential data to a public portfolio demo.
 
