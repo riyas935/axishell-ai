@@ -226,4 +226,6 @@ These controls reduce risk but do not replace hosting security, authentication, 
 
 ## License
 
-Add a license before sharing the repository publicly. Choose one that matches how you want others to use the project.
+This project is released under the [MIT License](LICENSE). Others may use, copy, modify, and deploy their own version, provided they keep the license and copyright notice.
+
+Created by Riya Sharma as an independent portfolio project.
