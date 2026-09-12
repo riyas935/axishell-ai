@@ -1,3 +1,6 @@
+## live Demo
+AxiShell AI - https://axishell-ai-jtytydy4jqjhqbh43yxffg.streamlit.app/
+
 # AxiShell AI
 
 A universal Excel and CSV analysis tool built with Streamlit, pandas, and Plotly.
