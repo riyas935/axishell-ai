@@ -2191,17 +2191,13 @@ product_summary.rename(columns={
 # Sort by Revenue descending
 product_summary = product_summary.sort_values('Total Revenue ($)', ascending=False).reset_index(drop=True)
 
-# Display styled DataFrame with numeric formatting
-st.dataframe(
-    product_summary.style.format({
-        'Units Sold': '{:,.0f}',
-        'Total Revenue ($)': '${:,.2f}',
-        'Average Price per Unit': '${:,.2f}',
-        'Revenue Contribution (%)': '{:.2f}%'
-    }).background_gradient(subset=['Total Revenue ($)'], cmap='YlGnBu' if not st.session_state.dark_mode else 'Blues'),
-    use_container_width=True,
-    hide_index=True
-)
+# Display a formatted copy to avoid pandas Styler serialization failures in hosted environments.
+product_summary_display = product_summary.copy()
+product_summary_display['Units Sold'] = product_summary_display['Units Sold'].map(lambda value: f'{value:,.0f}')
+product_summary_display['Total Revenue ($)'] = product_summary_display['Total Revenue ($)'].map(lambda value: f'${value:,.2f}')
+product_summary_display['Average Price per Unit'] = product_summary_display['Average Price per Unit'].map(lambda value: f'${value:,.2f}')
+product_summary_display['Revenue Contribution (%)'] = product_summary_display['Revenue Contribution (%)'].map(lambda value: f'{value:.2f}%')
+st.dataframe(product_summary_display, use_container_width=True, hide_index=True)
 
 
 # ================= DOWNLOAD REPORT BUTTON =================
